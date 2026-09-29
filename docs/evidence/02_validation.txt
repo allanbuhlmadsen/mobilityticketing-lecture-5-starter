@@ -1,0 +1,89 @@
+PASS  departureUtc as a string — rejected with code 121 (DocumentValidationFailure)
+{
+  failingDocumentId: 'LAB05:INVALID',
+  details: {
+    operatorName: '$jsonSchema',
+    schemaRulesNotSatisfied: [
+      {
+        operatorName: 'properties',
+        propertiesNotSatisfied: [
+          {
+            propertyName: 'departures',
+            details: [
+              {
+                operatorName: 'items',
+                reason: 'At least one item did not match the sub-schema',
+                itemIndex: 2,
+                details: [
+                  {
+                    operatorName: 'properties',
+                    propertiesNotSatisfied: [
+                      {
+                        propertyName: 'departureUtc',
+                        details: [
+                          {
+                            operatorName: 'bsonType',
+                            specifiedAs: {
+                              bsonType: 'date'
+                            },
+                            reason: 'type did not match',
+                            consideredValue: '2026-10-02T06:20:00Z',
+                            consideredType: 'string'
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+PASS  negative availableSeats — rejected with code 121 (DocumentValidationFailure)
+{
+  failingDocumentId: 'LAB05:INVALID-SEATS',
+  details: {
+    operatorName: '$jsonSchema',
+    schemaRulesNotSatisfied: [
+      {
+        operatorName: 'properties',
+        propertiesNotSatisfied: [
+          {
+            propertyName: 'departures',
+            details: [
+              {
+                operatorName: 'items',
+                reason: 'At least one item did not match the sub-schema',
+                itemIndex: 2,
+                details: [
+                  {
+                    operatorName: 'properties',
+                    propertiesNotSatisfied: [
+                      {
+                        propertyName: 'availableSeats',
+                        details: [
+                          {
+                            operatorName: 'minimum',
+                            specifiedAs: {
+                              minimum: 0
+                            },
+                            reason: 'comparison failed',
+                            consideredValue: -1
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

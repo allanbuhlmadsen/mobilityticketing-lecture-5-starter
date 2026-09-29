@@ -1,0 +1,28 @@
+Buggy query, the two conditions stated separately:
+[
+  {
+    _id: 'LAB05:A',
+    routeId: 'LINE-M2'
+  },
+  {
+    _id: 'LAB05:B',
+    routeId: 'LAB-OTHER-ROUTE'
+  }
+]
+
+The departures inside LAB05:B:
+  LAB05-T-B1  2026-10-02T05:55:00.000Z  Scheduled
+  LAB05-T-B2  2026-10-02T06:15:00.000Z  Cancelled
+LAB05-T-B1 satisfies the status condition but departs too early.
+LAB05-T-B2 departs inside the window but is cancelled.
+No single departure satisfies both, yet the journey matched.
+
+Fixed query, both conditions bound to the same array element:
+[
+  {
+    _id: 'LAB05:A',
+    routeId: 'LINE-M2'
+  }
+]
+
+Buggy: 2 journeys.  Fixed: 1 journey.

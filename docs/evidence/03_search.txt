@@ -1,0 +1,25 @@
+[
+  {
+    cityId: 'CPH',
+    routeId: 'LINE-M2',
+    fromStopId: 'STOP-NORREPORT',
+    toStopId: 'STOP-AIRPORT',
+    serviceDate: '2026-10-02',
+    price: Decimal128('36.00'),
+    currency: 'DKK',
+    tripId: 'LAB05-T-OK',
+    departureUtc: ISODate('2026-10-02T06:20:00.000Z'),
+    arrivalUtc: ISODate('2026-10-02T06:40:00.000Z'),
+    availableSeats: 10
+  }
+]
+PASS  Norreport to Airport, 06:00 to 07:00  ->  [LAB05-T-OK]
+PASS  End at 06:20, the exclusive boundary  ->  []
+PASS  Start at 06:20, the inclusive boundary  ->  [LAB05-T-OK]
+PASS  Airport to Norreport, the reverse direction  ->  [LAB05-T-E]
+PASS  Same search on 3 October  ->  [LAB05-T-F]
+PASS  Destination STOP-NO-MATCH  ->  []
+PASS  end equal to start — rejected: end must be later than start
+PASS  empty destination stop — rejected: cityId, fromStopId and toStopId are required
+----------------------------------------
+Passed: 8  Failed: 0

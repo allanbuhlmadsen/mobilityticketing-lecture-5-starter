@@ -1,0 +1,4 @@
+{
+  fixtureDocuments: 6,
+  alternativeDocuments: 0
+}

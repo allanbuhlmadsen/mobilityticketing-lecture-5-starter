@@ -1,0 +1,41 @@
+Documents built: 10
+
+LAB05-T-OK now has one document per stop pair:
+  LAB05:CPH:LINE-M2:STOP-NORREPORT:STOP-AIRPORT:2026-10-02:LAB05-T-OK
+  LAB05:CPH:LINE-M2:STOP-NORREPORT:STOP-CENTRAL:2026-10-02:LAB05-T-OK
+
+The first search against the new model:
+[
+  {
+    cityId: 'CPH',
+    routeId: 'LINE-M2',
+    fromStopId: 'STOP-NORREPORT',
+    toStopId: 'STOP-AIRPORT',
+    serviceDate: '2026-10-02',
+    price: Decimal128('36.00'),
+    currency: 'DKK',
+    tripId: 'LAB05-T-OK',
+    departureUtc: ISODate('2026-10-02T06:20:00.000Z'),
+    arrivalUtc: ISODate('2026-10-02T06:40:00.000Z'),
+    availableSeats: 10
+  }
+]
+
+PASS  Norreport to Airport, 06:00 to 07:00  ->  [LAB05-T-OK]
+PASS  End at 06:20, the exclusive boundary  ->  []
+PASS  Start at 06:20, the inclusive boundary  ->  [LAB05-T-OK]
+PASS  Airport to Norreport, the reverse direction  ->  [LAB05-T-E]
+PASS  Same search on 3 October  ->  [LAB05-T-F]
+PASS  Destination STOP-NO-MATCH  ->  []
+PASS  end equal to start — rejected: end must be later than start
+PASS  empty destination stop — rejected: cityId, fromStopId and toStopId are required
+----------------------------------------
+Passed: 8  Failed: 0
+
+Cancelled LAB05-T-OK — matched 2, modified 2
+No arrayFilters, no positional placeholder: status is a field of the document itself.
+  LAB05:CPH:LINE-M2:STOP-NORREPORT:STOP-AIRPORT:2026-10-02:LAB05-T-OK  Cancelled
+  LAB05:CPH:LINE-M2:STOP-NORREPORT:STOP-CENTRAL:2026-10-02:LAB05-T-OK  Cancelled
+
+The 06:00 to 07:00 search now returns 0 departures.
+Re-run this file to rebuild the collection from journey_search.

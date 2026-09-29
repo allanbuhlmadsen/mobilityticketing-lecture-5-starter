@@ -1,0 +1,12 @@
+Document sizes:
+  LAB05:A            4 departures        691 bytes   172.8 bytes each
+  LAB05:GROWTH       0 departures        227 bytes
+  LAB05:GROWTH     100 departures      12307 bytes   123.1 bytes each
+  LAB05:GROWTH    1000 departures     123007 bytes   123.0 bytes each
+
+Fixed part, measured with an empty array:  227 bytes.
+Average departure in the first 100:        120.8 bytes.
+Marginal departure from 100 to 1000:       123.0 bytes.
+Departures before the 16 MB limit:         about 136,398.
+
+LAB05:GROWTH removed. The collection is back to the six fixture journeys.

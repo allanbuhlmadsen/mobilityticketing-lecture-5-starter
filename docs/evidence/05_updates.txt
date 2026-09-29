@@ -1,0 +1,49 @@
+
+Before the update:
+  LAB05:A  2026-10-02T06:20:00.000Z  Scheduled
+  LAB05:C  2026-10-02T06:20:00.000Z  Scheduled
+The searches before the cancellation:
+  Norreport to Airport:  [LAB05-T-OK]
+  Norreport to Central:  [LAB05-T-OK]
+
+First run:   matched 2, modified 2
+Second run:  matched 2, modified 0
+
+After the update:
+  LAB05:A  2026-10-02T06:20:00.000Z  Cancelled
+  LAB05:C  2026-10-02T06:20:00.000Z  Cancelled
+The searches after the cancellation:
+  Norreport to Airport:  []
+  Norreport to Central:  []
+
+Restored:    matched 2, modified 2
+
+Cancelled in LAB05:A only — matched 1, modified 1
+The two searches now disagree about LAB05-T-OK:
+  Norreport to Airport:  []
+  Norreport to Central:  [LAB05-T-OK]
+
+Repaired everywhere — matched 2, modified 1
+Both searches now agree:
+  Norreport to Airport:  []
+  Norreport to Central:  []
+
+Moved to 07:05-07:25 — matched 2, modified 2
+
+LAB05-T-OK now reads:
+  LAB05:A  2026-10-02T07:05:00.000Z  Scheduled
+  LAB05:C  2026-10-02T07:05:00.000Z  Scheduled
+  06:00 to 07:00:  []
+  07:00 to 08:00:  [LAB05-T-OK, LAB05-T-EDGE]
+
+Repriced CPH / LINE-M2 — matched 4, modified 4
+
+Prices across the whole collection:
+  LAB05:A  CPH  LINE-M2  40.00
+  LAB05:B  CPH  LAB-OTHER-ROUTE  36.00
+  LAB05:C  CPH  LINE-M2  40.00
+  LAB05:D  LAB-OTHER-CITY  LINE-M2  36.00
+  LAB05:E  CPH  LINE-M2  40.00
+  LAB05:F  CPH  LINE-M2  40.00
+
+Fixture restored: LAB05-T-OK back to 06:20 Scheduled, all prices back to 36.00.
